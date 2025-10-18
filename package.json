@@ -1,0 +1,16 @@
+{
+  "name": "devtinder-be",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "Sunitha G",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "commonjs": "^0.0.1",
+    "express": "^5.1.0"
+  }
+}
