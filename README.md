@@ -16,3 +16,5 @@
 - push all the code to remote origin
 - play with the routes and extensions, /hello and /hello/2, /xyz
 - Order of the routes matter a lot.
+- Install postman app and make a workspace / collection > test API call.
+- Write logic to handle GET,POST, PATCH, DELETE API calls

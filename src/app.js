@@ -3,18 +3,26 @@ console.log("Starting new project.");
 const express = require("express");
 const app = express();
 
-app.use("/hello/2", (req, res) => {
-  res.send("sub route......");
+app.get("/user", (req, res) => {
+  res.send({ firstName: "Sunitha", lastName: "G" });
 });
 
-app.use("/hello", (req, res) => {
-  res.send("Hello helo.");
+app.post("/user", (req, res) => {
+  //Save data to DB.
+  res.send("Data Successfully saved to DB.");
 });
 
-app.use("/test", (req, res) => {
-  res.send("Hello test.!!!!!!!!!!!!!!");
+app.delete("/user", (req, res) => {
+  res.send("Data deleted sucessfully.");
 });
 
+app.patch("/user", (req, res) => {
+  res.send("Patch operation is sucessfull.");
+});
+
+app.put("/user", (req, res) => {
+  res.send("Put operation is sucessfull.");
+});
 app.use("/", (req, res) => {
   res.send("Hello from dashboard..............");
 });
