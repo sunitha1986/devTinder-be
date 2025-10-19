@@ -1,32 +1,25 @@
-console.log("Starting new project.");
-
 const express = require("express");
+
 const app = express();
 
-app.get("/user", (req, res) => {
-  res.send({ firstName: "Sunitha", lastName: "G" });
+const { adminAuth, userAuth } = require("./middlewares/auth");
+
+app.use("/admin", adminAuth);
+
+app.get("/user", userAuth);
+
+app.post("/user/login", (res, req) => {
+  res.send("User logged in successfully.");
 });
 
-app.post("/user", (req, res) => {
-  //Save data to DB.
-  res.send("Data Successfully saved to DB.");
+app.get("/user/data", (res, req) => {
+  res.send("User data sent.");
 });
 
-app.delete("/user", (req, res) => {
-  res.send("Data deleted sucessfully.");
+app.get("/admin/getAllData", userAuth, (req, res) => {
+  res.send("All Data sent.");
 });
 
-app.patch("/user", (req, res) => {
-  res.send("Patch operation is sucessfull.");
-});
-
-app.put("/user", (req, res) => {
-  res.send("Put operation is sucessfull.");
-});
-app.use("/", (req, res) => {
-  res.send("Hello from dashboard..............");
-});
-
-app.listen(7777, () => {
-  console.log("server runs on port 7777");
+app.get("/admin/deleteUser", userAuth, (req, res) => {
+  res.send("Delete a user.");
 });
